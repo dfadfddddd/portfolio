@@ -293,7 +293,7 @@ function initStarfield() {
         x: Math.random() * W,
         y: Math.random() * docH,
         z: z,
-        r: (0.4 + z * 1.4) * dpr,
+        r: (0.24 + z * 0.85) * dpr,
         a: 0.2 + Math.random() * 0.5,
         tw: 0.6 + Math.random() * 2.2,
         ph: Math.random() * Math.PI * 2,
@@ -328,7 +328,7 @@ function initStarfield() {
       if (s.z > 0.86) {
         ctx.globalAlpha = a * 0.3;
         ctx.beginPath();
-        ctx.arc(ox, oy, s.r * 2.6, 0, Math.PI * 2);
+        ctx.arc(ox, oy, s.r * 2.1, 0, Math.PI * 2);
         ctx.fill();
       }
     }

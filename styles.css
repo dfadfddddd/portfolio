@@ -128,7 +128,7 @@ html.has-cursor .cursor{display:block;}
   border-bottom:1px solid transparent;
   transition:background .4s,border-color .4s,backdrop-filter .4s;
 }
-.nav.is-scrolled{background:rgba(8,10,14,.72);backdrop-filter:blur(16px);border-bottom-color:var(--line);}
+.nav.is-scrolled{background:rgba(9,12,17,.9);backdrop-filter:blur(12px);border-bottom-color:var(--line);}
 .nav__logo{font-family:var(--font-m);font-size:1.02rem;letter-spacing:.2em;color:var(--text);text-decoration:none;transition:color .3s;}
 .nav__logo:hover{color:var(--acc);}
 .nav__logo-dot{color:var(--acc);}
@@ -246,7 +246,7 @@ body.menu-open .nav__burger span:last-child{transform:translateY(-3.5px) rotate(
 
 /* ---------- works ---------- */
 .works{border-top:1px solid var(--line);}
-.about::before,.works::before,.awards::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.028),rgba(255,255,255,0) 16%,rgba(255,255,255,0) 84%,rgba(255,255,255,.018)),linear-gradient(180deg,rgba(10,12,17,.28),rgba(10,12,17,.16));backdrop-filter:blur(14px) saturate(1.15);-webkit-backdrop-filter:blur(14px) saturate(1.15);}
+.about::before,.works::before,.awards::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0) 16%,rgba(255,255,255,0) 84%,rgba(255,255,255,.012)),linear-gradient(180deg,rgba(12,15,21,.6),rgba(9,11,16,.48));backdrop-filter:blur(10px) saturate(1.1);-webkit-backdrop-filter:blur(10px) saturate(1.1);}
 .about > .container,.works > .container,.awards > .container{position:relative;z-index:1;}
 .works__filters{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:2.8rem;}
 .filter{display:flex;align-items:center;gap:.55em;font-family:var(--font-m);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);background:transparent;border:1px solid var(--line-strong);padding:.62rem 1.15rem;border-radius:999px;cursor:pointer;transition:all .3s var(--ease);}
@@ -343,7 +343,7 @@ body.menu-open .nav__burger span:last-child{transform:translateY(-3.5px) rotate(
 .to-top:hover{color:var(--acc);}
 
 /* ---------- lightbox ---------- */
-.lightbox{position:fixed;inset:0;z-index:1500;background:rgba(5,7,10,.93);backdrop-filter:blur(14px);opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s;}
+.lightbox{position:fixed;inset:0;z-index:1500;background:rgba(6,8,12,.97);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s;}
 .lightbox.is-open{opacity:1;visibility:visible;}
 .lightbox__stage{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1fr) 380px;grid-template-rows:minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);padding:calc(var(--nav-h) + 18px) var(--gutter) 30px;}
 .lightbox__figure{position:relative;display:flex;align-items:center;justify-content:center;min-height:0;height:100%;cursor:zoom-in;}
@@ -370,13 +370,13 @@ body.menu-open .nav__burger span:last-child{transform:translateY(-3.5px) rotate(
 .lightbox__nav--next{right:var(--gutter);}
 
 /* ---------- certificate viewer ---------- */
-.imgviewer{position:fixed;inset:0;z-index:1550;background:rgba(5,7,10,.95);backdrop-filter:blur(12px);display:grid;place-items:center;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s;cursor:zoom-out;}
+.imgviewer{position:fixed;inset:0;z-index:1550;background:rgba(6,8,12,.97);backdrop-filter:blur(8px);display:grid;place-items:center;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s;cursor:zoom-out;}
 .imgviewer.is-open{opacity:1;visibility:visible;}
 .imgviewer img{max-width:88vw;max-height:86vh;object-fit:contain;box-shadow:0 30px 90px rgba(0,0,0,.6);}
 .imgviewer__hint{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font-family:var(--font-m);font-size:.6rem;letter-spacing:.24em;color:var(--faint);text-transform:uppercase;}
 
 /* ---------- video modal ---------- */
-.videobox{position:fixed;inset:0;z-index:1600;background:rgba(5,7,10,.95);backdrop-filter:blur(16px);display:grid;place-items:center;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s;}
+.videobox{position:fixed;inset:0;z-index:1600;background:rgba(6,8,12,.98);backdrop-filter:blur(10px);display:grid;place-items:center;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s;}
 .videobox.is-open{opacity:1;visibility:visible;}
 .videobox__stage{width:min(1280px,92vw);}
 .videobox video{width:100%;max-height:76vh;background:#000;box-shadow:0 30px 90px rgba(0,0,0,.6);display:block;}
