@@ -77,11 +77,11 @@ const FILTERS = [
 ];
 
 const FILMS = [
-  { id: "gai", title: "GAI GAME TIME", poster: "poster-gai", src: "gai-game-time", spec: "2K · 30FPS · 3′30″", tag: "AI 生成 · 游戏视觉" },
-  { id: "manbu", title: "漫步人参路", poster: "poster-td", src: "td-manbu-renshenlu", spec: "8K · 60FPS · 1′30″", tag: "非遗纪录 · 空间漫游" },
-  { id: "zhaolu", title: "朝露席间", poster: "poster-zhaolu", src: "zhaolu-xijian", spec: "1080P · 60FPS · 1′20″", tag: "氛围短片" },
-  { id: "jinlie", title: "烬猎", poster: "poster-jinlie", src: "jinlie", spec: "4K · 60FPS · 3′30″", tag: "游戏向 · 动作视觉" },
-  { id: "shengmiao", title: "长白山圣庙", poster: "poster-shengmiao", src: "changbaishan-shengmiao", spec: "2K · 30FPS · 2′00″", tag: "环境叙事" }
+  { id: "gai", title: "GAI GAME TIME", poster: "poster-gai", src: "gai-game-time", spec: "720P · 30FPS · 3′18″", tag: "AI 生成 · 游戏视觉" },
+  { id: "manbu", title: "漫步人参路", poster: "poster-td", src: "td-manbu-renshenlu", spec: "720P · 30FPS · 1′33″", tag: "非遗纪录 · 空间漫游" },
+  { id: "zhaolu", title: "朝露席间", poster: "poster-zhaolu", src: "zhaolu-xijian", spec: "720P · 30FPS · 1′10″", tag: "氛围短片" },
+  { id: "jinlie", title: "烬猎", poster: "poster-jinlie", src: "jinlie", spec: "720P · 30FPS · 3′28″", tag: "游戏向 · 动作视觉" },
+  { id: "shengmiao", title: "长白山圣庙", poster: "poster-shengmiao", src: "changbaishan-shengmiao", spec: "720P · 30FPS · 2′01″", tag: "环境叙事" }
 ];
 
 const AWARDS = [
@@ -136,7 +136,7 @@ function renderWorks() {
     return `
       <article class="work work--${span}" data-id="${w.id}" data-hover>
         <div class="work__media">
-          <img src="assets/img/${w.images[0]}.jpg" alt="${w.title}" loading="lazy">
+          <img src="assets/img/${w.images[0]}.webp" alt="${w.title}" loading="lazy">
           <div class="work__veil"></div>
           <span class="work__cat">${w.catName}</span>
           <span class="work__view">VIEW +</span>
@@ -160,7 +160,7 @@ function renderFilms() {
   qs("#film-list").innerHTML = FILMS.map((f, i) => `
     <article class="film__card" data-id="${f.id}" data-hover>
       <div class="film__media">
-        <img src="assets/img/${f.poster}.jpg" alt="${f.title}" loading="lazy">
+        <img src="assets/img/${f.poster}.webp" alt="${f.title}" loading="lazy">
         
         <div class="film__veil"></div>
         <span class="film__play"><i>▶</i></span>
@@ -186,7 +186,7 @@ function renderAwards() {
   qs("#awards-grid").innerHTML = AWARDS.map((a, i) => `
     <figure class="award" data-hover>
       <div class="award__frame">
-        <img src="assets/img/${a.img}.jpg" alt="${a.name}" loading="lazy">
+        <img src="assets/img/${a.img}.webp" alt="${a.name}" loading="lazy">
         <div class="award__veil"><span class="award__zoom">+</span></div>
       </div>
       <figcaption class="award__cap">
@@ -216,7 +216,7 @@ function initPreloader() {
   const label = qs("#preloader-label");
   const labels = ["INITIALIZING", "LOADING FONTS", "COMPILING ASSETS", "CALIBRATING GRID", "READY"];
   const start = performance.now();
-  const dur = isMobile ? 1300 : 2100;
+  const dur = isMobile ? 700 : 1100;
   let li = -1;
   let finished = false;
 
@@ -240,7 +240,7 @@ function initPreloader() {
     if (idx !== li) { li = idx; label.textContent = labels[idx]; }
     if (t < 1) requestAnimationFrame(step); else finish();
   })(performance.now());
-  setTimeout(finish, isMobile ? 1700 : 2600);
+  setTimeout(finish, isMobile ? 900 : 1400);
 }
 
 /* ================= custom cursor ================= */
@@ -440,7 +440,7 @@ function paintLightbox() {
   lbImg.style.transform = "";
   lbImg.style.transformOrigin = "";
   lbImg.classList.remove("is-in");
-  lbImg.src = "assets/img/" + imgs[lbIdx] + ".jpg";
+  lbImg.src = "assets/img/" + imgs[lbIdx] + ".webp";
   lbImg.alt = lbProj.title + " — " + pad(lbIdx + 1);
   qs("#lb-index").textContent = pad(lbIdx + 1) + " / " + pad(imgs.length);
   qs("#lb-cat").textContent = lbProj.catName + " · " + lbProj.tag;
@@ -449,7 +449,7 @@ function paintLightbox() {
   qs("#lb-desc").textContent = lbProj.desc;
   qs("#lb-caption").textContent = imgs[lbIdx];
   qs("#lb-thumbs").innerHTML = imgs.map((s, i) =>
-    `<button class="lb-thumb${i === lbIdx ? " is-active" : ""}" data-i="${i}" type="button"><img src="assets/img/${s}.jpg" alt="" loading="lazy"></button>`
+    `<button class="lb-thumb${i === lbIdx ? " is-active" : ""}" data-i="${i}" type="button"><img src="assets/img/${s}.webp" alt="" loading="lazy"></button>`
   ).join("");
   qsa(".lb-thumb", qs("#lb-thumbs")).forEach(b => {
     b.addEventListener("click", () => { lbIdx = Number(b.dataset.i); paintLightbox(); });
@@ -523,7 +523,7 @@ const video = qs("#vb-video");
 
 function openFilm(f) {
   video.src = "assets/video/" + f.src + ".mp4";
-  video.poster = "assets/img/" + f.poster + ".jpg";
+  video.poster = "assets/img/" + f.poster + ".webp";
   qs("#vb-title").textContent = f.title;
   qs("#vb-spec").textContent = f.spec + " — " + f.tag;
   vb.classList.add("is-open");
