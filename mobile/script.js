@@ -214,20 +214,22 @@ function initPreloader() {
   const bar = qs("#preloader-bar");
   const pct = qs("#preloader-pct");
   const label = qs("#preloader-label");
-  const labels = ["INITIALIZING", "LOADING FONTS", "COMPILING ASSETS", "CALIBRATING GRID", "READY"];
+  const labels = ["INITIALIZING", "READY"];
   const start = performance.now();
-  const dur = isMobile ? 700 : 1100;
+  const dur = isMobile ? 300 : 450;
   let li = -1;
   let finished = false;
+
+  // 内容立即渲染，预加载只做快速淡出
+  renderAll();
+  initReveal();
+  startBgm();
 
   function finish() {
     if (finished) return;
     finished = true;
     root.classList.add("is-done");
-    renderAll();
-    initReveal();
-    startBgm();
-    setTimeout(() => { root.style.display = "none"; }, 850);
+    setTimeout(() => { root.style.display = "none"; }, 450);
   }
 
   (function step(now) {
@@ -240,7 +242,7 @@ function initPreloader() {
     if (idx !== li) { li = idx; label.textContent = labels[idx]; }
     if (t < 1) requestAnimationFrame(step); else finish();
   })(performance.now());
-  setTimeout(finish, isMobile ? 900 : 1400);
+  setTimeout(finish, dur + 120);
 }
 
 /* ================= custom cursor ================= */
@@ -581,6 +583,9 @@ function initRipple() {
 /* ================= boot ================= */
 document.addEventListener("DOMContentLoaded", () => {
   initPreloader();
+  if ("serviceWorker" in navigator) {
+    addEventListener("load", () => { navigator.serviceWorker.register("sw.js").catch(function () {}); });
+  }
   initCursor();
   initStarfield();
   initNav();
