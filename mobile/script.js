@@ -77,11 +77,11 @@ const FILTERS = [
 ];
 
 const FILMS = [
-  { id: "gai", title: "GAI GAME TIME", poster: "poster-gai", src: "gai-game-time", spec: "720P · 30FPS · 3′18″", tag: "AI 生成 · 游戏视觉" },
-  { id: "manbu", title: "漫步人参路", poster: "poster-td", src: "td-manbu-renshenlu", spec: "720P · 30FPS · 1′33″", tag: "非遗纪录 · 空间漫游" },
-  { id: "zhaolu", title: "朝露席间", poster: "poster-zhaolu", src: "zhaolu-xijian", spec: "720P · 30FPS · 1′10″", tag: "氛围短片" },
-  { id: "jinlie", title: "烬猎", poster: "poster-jinlie", src: "jinlie", spec: "720P · 30FPS · 3′28″", tag: "游戏向 · 动作视觉" },
-  { id: "shengmiao", title: "长白山圣庙", poster: "poster-shengmiao", src: "changbaishan-shengmiao", spec: "720P · 30FPS · 2′01″", tag: "环境叙事" }
+  { id: "gai", title: "GAI GAME TIME", poster: "poster-gai", src: "gai-game-time", spec: "480P · 30FPS · 3′18″", tag: "AI 生成 · 游戏视觉" },
+  { id: "manbu", title: "漫步人参路", poster: "poster-td", src: "td-manbu-renshenlu", spec: "480P · 30FPS · 1′33″", tag: "非遗纪录 · 空间漫游" },
+  { id: "zhaolu", title: "朝露席间", poster: "poster-zhaolu", src: "zhaolu-xijian", spec: "480P · 30FPS · 1′10″", tag: "氛围短片" },
+  { id: "jinlie", title: "烬猎", poster: "poster-jinlie", src: "jinlie", spec: "480P · 30FPS · 3′28″", tag: "游戏向 · 动作视觉" },
+  { id: "shengmiao", title: "长白山圣庙", poster: "poster-shengmiao", src: "changbaishan-shengmiao", spec: "480P · 30FPS · 2′01″", tag: "环境叙事" }
 ];
 
 const AWARDS = [
