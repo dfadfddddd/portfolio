@@ -4,7 +4,7 @@
 
 ## 线上访问
 
-GitHub Pages 部署后访问：`https://<用户名>.github.io/<仓库名>/`
+GitHub Pages 部署后访问：`https://dfadfddddd.github.io/portfolio/`
 
 ## 作品概览
 
