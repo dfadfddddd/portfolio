@@ -210,12 +210,13 @@ function renderAll() {
 /* ================= preloader ================= */
 function initPreloader() {
   const root = qs("#preloader");
+  const isMobile = matchMedia("(max-width:640px)").matches;
   const bar = qs("#preloader-bar");
   const pct = qs("#preloader-pct");
   const label = qs("#preloader-label");
   const labels = ["INITIALIZING", "LOADING FONTS", "COMPILING ASSETS", "CALIBRATING GRID", "READY"];
   const start = performance.now();
-  const dur = 2100;
+  const dur = isMobile ? 1300 : 2100;
   let li = -1;
   let finished = false;
 
@@ -239,7 +240,7 @@ function initPreloader() {
     if (idx !== li) { li = idx; label.textContent = labels[idx]; }
     if (t < 1) requestAnimationFrame(step); else finish();
   })(performance.now());
-  setTimeout(finish, 2600);
+  setTimeout(finish, isMobile ? 1700 : 2600);
 }
 
 /* ================= custom cursor ================= */
@@ -276,7 +277,7 @@ function initStarfield() {
   const cv = qs("#starfield");
   if (!cv) return;
   const ctx = cv.getContext("2d");
-  const dpr = devicePixelRatio || 1;
+  const dpr = Math.min(devicePixelRatio || 1, 2);
   let W = 0, H = 0, docH = 0, stars = [], raf = 0;
   let press = 0, pressTarget = 0;
   const mouse = { x: innerWidth / 2, y: innerHeight / 2, ax: innerWidth / 2, ay: innerHeight / 2 };
@@ -284,7 +285,7 @@ function initStarfield() {
     W = cv.width = Math.floor(innerWidth * dpr);
     H = cv.height = Math.floor(innerHeight * dpr);
     docH = Math.max(document.documentElement.scrollHeight, innerHeight) * dpr;
-    const n = Math.round(clamp((W * docH) / 12000, 90, 520));
+    const n = Math.round(clamp((W * docH) / 12000 * (innerWidth < 640 ? 0.55 : 1), 60, 520));
     stars = [];
     for (let i = 0; i < n; i++) {
       const z = Math.random();
@@ -350,6 +351,7 @@ function initStarfield() {
 
 /* ================= nav / scroll fx ================= */
 function heroParallax() {
+  if (!isFine) return;
   const center = qs(".hero__center");
   if (!center || scrollY > innerHeight) return;
   center.style.transform = "translateY(" + scrollY * 0.16 + "px)";
@@ -376,16 +378,18 @@ function initNav() {
   }, { passive: true });
   onScroll();
 
+  const closeMenu = () => {
+    document.body.classList.remove("menu-open");
+    burger.setAttribute("aria-expanded", "false");
+  };
   burger.addEventListener("click", () => {
     const open = document.body.classList.toggle("menu-open");
     burger.setAttribute("aria-expanded", String(open));
   });
+  qs("#nav-menu").addEventListener("click", e => { if (e.target === qs("#nav-menu")) closeMenu(); });
 
   qsa("[data-link]").forEach(a => {
-    a.addEventListener("click", () => {
-      document.body.classList.remove("menu-open");
-      burger.setAttribute("aria-expanded", "false");
-    });
+    a.addEventListener("click", closeMenu);
   });
 
   const io = new IntersectionObserver(entries => {
@@ -546,7 +550,10 @@ function initVideo() {
 /* ================= keyboard ================= */
 addEventListener("keydown", e => {
   if (e.key === "Escape") {
-    if (vb.classList.contains("is-open")) closeFilm();
+    if (document.body.classList.contains("menu-open")) {
+      document.body.classList.remove("menu-open");
+      qs("#nav-burger").setAttribute("aria-expanded", "false");
+    } else if (vb.classList.contains("is-open")) closeFilm();
     else if (lb.classList.contains("is-open")) closeLightbox();
     else if (iv.classList.contains("is-open")) closeCert();
   }

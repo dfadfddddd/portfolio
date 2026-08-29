@@ -486,3 +486,71 @@ body.is-ready .bgm-toggle{opacity:1;transform:none;transition:opacity .6s var(--
 @keyframes bgmAttention{0%,100%{box-shadow:0 0 0 0 rgba(111,227,200,0);}50%{box-shadow:0 0 0 10px rgba(111,227,200,.12),0 0 28px rgba(111,227,200,.3);}}
 @media (max-width:960px){.bgm-toggle__bars{display:none;}}
 @media (max-width:640px){.bgm-toggle{font-size:.66rem;padding:.5rem .85rem;}}
+
+/* ================= mobile polish ================= */
+html{-webkit-tap-highlight-color:transparent;}
+/* 触摸屏：去掉粘滞 hover、降级性能开销 */
+@media (hover:none){
+  .has-txtfx:hover .ch{transform:none!important;color:inherit!important;text-shadow:none!important;}
+  .about__lead p:hover,.hero__desc:hover,.contact__desc:hover,.exp__row p:hover,.lightbox__desc:hover,.awards__note:hover,.contact__meta span:hover{color:inherit;text-shadow:none;}
+  .work__veil,.work__view,.award__veil{display:none;}
+  .work:hover .work__media img,.work:active .work__media img{transform:scale(1.01);filter:saturate(.84) contrast(1.03);}
+  .film__card:hover .film__media img{transform:none;filter:saturate(.8) contrast(1.03);}
+  .film__card:hover .film__veil{opacity:.55;}
+  .award:hover .award__frame img{transform:none;filter:saturate(.66) contrast(1.06) brightness(.96);}
+  .docs__row:hover{transform:none;background:none;border-color:var(--line);}
+  .docs__row:hover .docs__arrow{transform:none;color:var(--muted);}
+  .filter:hover{color:var(--muted);border-color:var(--line-strong);}
+  .lightbox__nav:hover,.lightbox__close:hover,.videobox__close:hover{color:var(--muted);border-color:var(--line-strong);}
+  .contact__mail:hover{color:var(--text);}
+  .contact__tel:hover{color:var(--muted);}
+  .to-top:hover{color:var(--muted);}
+  .bgm-toggle:hover{color:var(--muted);border-color:var(--line-strong);}
+  .facts__row a:hover{color:inherit;border-color:var(--line-strong);}
+  .nav__logo:hover{color:var(--text);}
+  .nav__menu a:hover,.nav__menu a.is-active{color:var(--muted);}
+  .nav__menu a:hover::after{transform:scaleX(0);}
+}
+@media (max-width:960px){
+  body.menu-open{overflow:hidden;}
+  .about::before,.works::before,.awards::before{backdrop-filter:none;-webkit-backdrop-filter:none;}
+}
+@media (max-width:640px){
+  .hero__meta--right{display:none;}
+  .hero__title{font-size:clamp(3.4rem,16vw,4.6rem);}
+  .hero__eyebrow{margin-top:1.8rem;}
+  .hero__footer{padding:1.1rem 0 1.8rem;margin-top:2.4rem;}
+  .grain{animation:none;}
+  .scanlines{display:none;}
+  .work__info{flex-wrap:wrap;gap:.4rem .8rem;}
+  .work__tag{white-space:normal;max-width:100%;}
+  .works__note,.awards__note{line-height:1.95;}
+  .docs__row{gap:.8rem;padding:.95rem 1rem;}
+  .section__head{margin-bottom:2.4rem;}
+  .section__title{flex-wrap:wrap;gap:.6rem 1rem;}
+  .works__filters{margin-bottom:1.8rem;gap:.55rem;}
+  .filter{padding:.58rem 1rem;}
+  .lightbox__stage{padding:calc(var(--nav-h) + 6px) 14px 16px;gap:1rem;}
+  .lightbox__figure img{max-height:50vh;}
+  .lightbox__close,.videobox__close{top:calc(var(--nav-h) - 28px);right:12px;padding:.45rem .7rem;}
+  .lightbox__nav{width:44px;height:44px;}
+  .lightbox__nav--prev{left:8px;}
+  .lightbox__nav--next{right:8px;}
+  .lb-thumb{width:52px;height:52px;}
+  .videobox__stage{width:100%;}
+  .videobox__stage video{max-height:72vh;}
+  .videobox__cap{flex-direction:column;gap:.35rem;line-height:1.7;}
+  .contact__meta{flex-direction:column;gap:.6rem;}
+  .site-footer{flex-direction:column;gap:.9rem;}
+}
+@media (max-width:400px){
+  .hero__title{font-size:clamp(3rem,17vw,3.6rem);}
+  .hero__eyebrow{font-size:.6rem;letter-spacing:.22em;gap:.8rem;}
+}
+/* 刘海屏安全区 */
+@supports(padding:max(0px)){
+  .nav{padding-left:max(var(--gutter),env(safe-area-inset-left));padding-right:max(var(--gutter),env(safe-area-inset-right));}
+  .hero{padding-left:max(var(--gutter),env(safe-area-inset-left));padding-right:max(var(--gutter),env(safe-area-inset-right));}
+  .container{padding-left:max(var(--gutter),env(safe-area-inset-left));padding-right:max(var(--gutter),env(safe-area-inset-right));}
+  .nav__menu{padding-left:max(var(--gutter),env(safe-area-inset-left));padding-right:max(var(--gutter),env(safe-area-inset-right));}
+}
