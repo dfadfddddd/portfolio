@@ -554,3 +554,15 @@ html{-webkit-tap-highlight-color:transparent;}
   .container{padding-left:max(var(--gutter),env(safe-area-inset-left));padding-right:max(var(--gutter),env(safe-area-inset-right));}
   .nav__menu{padding-left:max(var(--gutter),env(safe-area-inset-left));padding-right:max(var(--gutter),env(safe-area-inset-right));}
 }
+
+/* ---------- about portrait photo ---------- */
+.about__photo{grid-column:8 / span 5;margin-top:clamp(2.6rem,5vh,3.6rem);}
+.about__photo-img{display:block;width:100%;max-width:clamp(220px,24vw,330px);margin-left:auto;filter:brightness(.97) saturate(.96);}
+@media (max-width:960px){
+  .about__photo{grid-column:1 / span 7;margin-top:2.8rem;}
+  .about__photo-img{margin-left:0;}
+}
+@media (max-width:640px){
+  .about__photo{grid-column:1 / span 12;margin-top:2.2rem;}
+  .about__photo-img{margin:0 auto;max-width:300px;}
+}
