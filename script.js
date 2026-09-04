@@ -1,4 +1,4 @@
-"use strict";
+﻿"use strict";
 
 /* ================= helpers ================= */
 const qs = (sel, ctx) => (ctx || document).querySelector(sel);
@@ -11,27 +11,15 @@ const isFine = window.matchMedia("(pointer: fine)").matches;
 /* ================= data ================= */
 const WORKS = [
   {
-    id: "jinlie",
-    title: "烬猎海报设计",
-    sub: "数智影像 · 中国好创意获奖作品",
-    cat: "ai",
-    catName: "AI 设计",
-    tag: "竞赛 · 中国好创意",
-    meta: "海报设计 / 数智影像",
-    desc: "为数字影像作品《烬猎》（Hunt of Embers）设计的主视觉海报，以克制的光影秩序与游戏向动作视觉构建画面氛围，作品获第 20 届中国好创意全国总决赛二等奖。",
-    images: ["poster-jinlie-1", "poster-jinlie-2"]
-  },
-
-  {
-    id: "xcup",
-    title: "新人杯 · AI 适老化设计",
-    sub: "基于差序格局的社区营造",
+    id: "shilaohua",
+    title: "适老化设计",
+    sub: "AI 辅助的适老化社区与居住空间",
     cat: "ai",
     catName: "AI 设计",
     tag: "竞赛 · 新人杯",
-    meta: "AI 工作流 / 适老空间",
-    desc: "以“差序格局”为理论框架，探索 AI 辅助下的适老化社区空间生成方法。从人群画像、模块化空间原型到建造逻辑，构建一套人机协同的设计工作流。",
-    images: ["xcup-board-1", "xcup-board-2", "xcup-moodboard", "xcup-floorplan", "xcup-zoning", "xcup-ai-modules", "xcup-axo-1", "xcup-section", "xcup-render-3", "xcup-render-5", "xcup-construction-2"]
+    meta: "AI 工作流 / 社区营造 / 居住空间",
+    desc: "以“差序格局”为理论框架，探索 AI 辅助下的适老化空间生成方法：从人群画像、模块化空间原型、功能分区、隐藏式适老化轴测到施工图与效果图，面向全周期照护体系构建一套人机协同的适老化设计工作流。",
+    images: ["xcup-board-1", "xcup-board-2", "xcup-axo-1", "xcup-section", "xcup-render-3", "xcup-render-5", "chanju-1", "chanju-2", "chanju-3", "chanju-4", "chanju-5", "chanju-6", "chanju-7", "chanju-8"]
   },
   {
     id: "yunxing",
@@ -44,17 +32,17 @@ const WORKS = [
     desc: "面向人文内容的线上展陈空间，负责场景搭建、灯光氛围与最终渲染，探索数字时代“无墙展厅”的观看方式与空间语言。",
     images: ["yunxing-1", "yunxing-2", "yunxing-3", "yunxing-4", "yunxing-5", "yunxing-6", "yunxing-8", "yunxing-10"]
   },
- {
-    id: "chanju",
-    title: "七境蝉居适老化设计",
-    sub: "AI 适老化居住空间方案",
-    cat: "space",
-    catName: "空间设计",
-    tag: "室内 · 适老化",
-    meta: "全周期照护 / AI 辅助设计",
-    desc: "面向全周期照护体系的适老化居住空间设计：从区位与户型调研、人物与灵感分析出发，完成功能分区、隐藏式适老化轴测分析、施工图与效果图，并借助 AI 家居控制模块辅助方案生成。",
-    images: ["chanju-1", "chanju-2", "chanju-3", "chanju-4", "chanju-5", "chanju-6", "chanju-7", "chanju-8"]
- },
+  {
+    id: "manbu-expo",
+    title: "漫步人参路 · 采参非遗展示设计",
+    sub: "长白山采参非遗文化科普展示设计",
+    cat: "exh",
+    catName: "展陈展示",
+    tag: "竞赛 · 展陈",
+    meta: "展陈策划 / 空间与交互 / 文创视觉",
+    desc: "以长白山采参非遗文化为主题的科普展示设计：从人参产业与采参习俗的前期调研、区位与人群分析，到策展结构、展览动线与交互装置，完成内容板块、空间方案及海报、门票与文创的全套展陈设计。",
+    images: ["manbu-deck-01", "manbu-deck-02", "manbu-deck-03", "manbu-deck-04", "manbu-deck-05", "manbu-deck-06", "manbu-deck-07", "manbu-deck-08", "manbu-deck-09", "manbu-deck-10", "manbu-deck-11", "manbu-deck-12", "manbu-deck-13", "manbu-deck-14", "manbu-deck-15", "manbu-deck-16", "manbu-deck-17", "manbu-deck-18", "manbu-deck-19", "manbu-deck-20", "manbu-deck-21", "manbu-deck-22", "manbu-deck-23", "manbu-deck-24", "manbu-deck-25", "manbu-deck-26", "manbu-deck-27", "manbu-deck-28", "manbu-deck-29", "manbu-deck-30", "manbu-deck-31", "manbu-deck-32", "manbu-deck-33", "manbu-deck-34", "manbu-deck-35", "manbu-deck-36", "manbu-deck-37", "manbu-deck-38", "manbu-deck-39", "manbu-deck-40", "manbu-deck-41", "manbu-deck-42", "manbu-deck-43", "manbu-deck-44", "manbu-deck-45", "manbu-deck-46", "manbu-deck-47", "manbu-deck-48", "manbu-deck-49", "manbu-deck-50", "manbu-deck-51", "manbu-deck-52", "manbu-deck-53", "manbu-deck-54", "manbu-deck-55", "manbu-deck-56", "manbu-deck-57", "manbu-deck-58", "manbu-deck-59", "manbu-deck-60", "manbu-deck-61", "manbu-deck-62", "manbu-deck-63", "manbu-deck-64", "manbu-deck-65", "manbu-deck-66", "manbu-deck-67", "manbu-deck-68", "manbu-deck-69", "manbu-deck-70", "manbu-deck-71", "manbu-deck-72", "manbu-deck-73", "manbu-deck-74", "manbu-deck-75", "manbu-deck-76", "manbu-deck-77", "manbu-deck-78", "manbu-deck-79", "manbu-deck-80", "manbu-deck-81", "manbu-deck-82", "manbu-deck-83", "manbu-deck-84", "manbu-deck-85", "manbu-deck-86", "manbu-deck-87", "manbu-deck-88", "manbu-deck-89", "manbu-deck-90", "manbu-deck-91", "manbu-deck-92", "manbu-deck-93", "manbu-deck-94", "manbu-deck-95", "manbu-deck-96", "manbu-deck-97", "manbu-deck-98", "manbu-deck-99", "manbu-deck-100", "manbu-deck-101", "manbu-deck-102", "manbu-deck-103", "manbu-deck-104", "manbu-deck-105", "manbu-deck-106", "manbu-deck-107", "manbu-deck-108"]
+  },
   {
     id: "board",
     title: "环境展板设计",
@@ -77,11 +65,12 @@ const FILTERS = [
 ];
 
 const FILMS = [
-  { id: "gai", title: "GAI GAME TIME", poster: "poster-gai", src: "gai-game-time", spec: "720P · 30FPS · 3′18″", tag: "AI 生成 · 游戏视觉" },
-  { id: "manbu", title: "漫步人参路", poster: "poster-td", src: "td-manbu-renshenlu", spec: "720P · 30FPS · 1′33″", tag: "非遗纪录 · 空间漫游" },
-  { id: "zhaolu", title: "朝露席间", poster: "poster-zhaolu", src: "zhaolu-xijian", spec: "720P · 30FPS · 1′10″", tag: "氛围短片" },
-  { id: "jinlie", title: "烬猎", poster: "poster-jinlie", src: "jinlie", spec: "720P · 30FPS · 3′28″", tag: "游戏向 · 动作视觉" },
-  { id: "shengmiao", title: "长白山圣庙", poster: "poster-shengmiao", src: "changbaishan-shengmiao", spec: "720P · 30FPS · 2′01″", tag: "环境叙事" }
+  { id: "gai", title: "GAI GAME TIME", poster: "poster-gai", src: "gai-game-time", spec: "1080P · 30FPS · 3′18″", tag: "AI 生成 · 游戏视觉" },
+  { id: "manbu", title: "漫步人参路", poster: "poster-td", src: "td-manbu-renshenlu", spec: "1080P · 60FPS · 1′33″", tag: "非遗纪录 · 空间漫游" },
+  { id: "zhaolu", title: "朝露席间", poster: "poster-zhaolu", src: "zhaolu-xijian", spec: "1080P · 60FPS · 1′10″", tag: "氛围短片" },
+  { id: "jinlie", title: "烬猎", poster: "poster-jinlie", src: "jinlie", spec: "1080P · 60FPS · 3′28″", tag: "游戏向 · 动作视觉" },
+  { id: "shengmiao", title: "长白山圣庙", poster: "poster-shengmiao", src: "changbaishan-shengmiao", spec: "1080P · 30FPS · 2′01″", tag: "环境叙事" },
+  { id: "tdai", title: "单片机智能交互", poster: "poster-tdai", src: "td-ai-interact", spec: "720P · 30FPS · 1′20″", tag: "科技 · 交互装置" }
 ];
 
 const AWARDS = [
